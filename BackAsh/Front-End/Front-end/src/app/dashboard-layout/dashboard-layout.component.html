@@ -6,7 +6,7 @@
       </div>
       <div class="navigation mx-auto text-start">
         <div  class="mx-auto">
-          <div *ngIf="role == 'customer' || role == 'fieldWorker'"
+          <div *ngIf="role == 'customer'"
                class="p-3 drawer_item_box row m-1"
                [class.active]="isDrawerItemActive('Projects')"
                [routerLink]="['/dashboard/projects']"
@@ -25,7 +25,7 @@
             <hr>
           </div>
 
-           
+
 
           <div *ngIf="role == 'customer'"
           class=" p-3 drawer_item_box row"
@@ -45,7 +45,7 @@
        <p class="drawer_text">Review</p>
        <hr>
    </div>
-   
+
           <div *ngIf="role == 'fieldWorker'"
                class="p-3 drawer_item_box row"
                [class.active]="isDrawerItemActive('ProjectRequest')"

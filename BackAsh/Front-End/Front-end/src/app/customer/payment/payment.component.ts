@@ -41,7 +41,7 @@ export class PaymentComponent implements OnInit {
         return actions.order.create({
           purchase_units: [{
             amount: {
-              value: amount,
+              value: amount
             },
           }],
         });
