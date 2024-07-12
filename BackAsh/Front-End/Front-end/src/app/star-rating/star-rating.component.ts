@@ -12,10 +12,16 @@ import {NgForOf} from "@angular/common";
 })
 export class StarRatingComponent {
   @Input() rating: number = 0;
-  @Output() ratingChange: EventEmitter<number> = new EventEmitter<number>();
+  constructor() {}
 
-  setRating(rating: number) {
-    this.rating = rating;
-    this.ratingChange.emit(rating);
+  filledStars(): number[] {
+    return Array(this.rating).fill(0).map((x, i) => i);
+  }
+
+  emptyStars(): number[] {
+    return Array(5 - this.rating).fill(0).map((x, i) => i);
   }
 }
+
+
+

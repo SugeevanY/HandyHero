@@ -19,6 +19,7 @@ import { ReviewComponent } from './customer/review/review.component';
 import { GettingReviewComponent } from './Admin/getting-review/getting-review.component';
 import {ForgotPasswordComponent} from "./forgot-password/forgot-password.component";
 import {ResetPasswordComponent} from "./reset-password/reset-password.component";
+import {StarRatingComponent} from "./star-rating/star-rating.component";
 
 
 
@@ -44,7 +45,8 @@ export const routes: Routes = [
       {path: 'payment', component: PaymentComponent},
       {path:'chat', component: ChatComponent},
       {path: 'complaint', component: ComplaintComponent},
-      {path: 'Review', component: ReviewComponent}
+      {path: 'Review', component: ReviewComponent},
+      {path: 'starrating',component: StarRatingComponent}
     ]
   },
   {

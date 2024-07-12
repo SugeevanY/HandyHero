@@ -1,5 +1,6 @@
 .star-rating {
-  font-size: 30px;
+  font-size: 24px; /* Adjust size as needed */
+  color: black; /* Default color for stars */
 }
 
 .star {
@@ -7,5 +8,5 @@
 }
 
 .star.filled {
-  color: gold;
+  color: #ffd700; /* Golden color for filled stars */
 }

@@ -57,7 +57,7 @@ export class FindComponent implements OnInit {
   employees: any[] = [];
   employeesStatistic: any[] = [];
 
-  QuatationFile: File | undefined;
+
 
   selectedEmployeeId: string = "";
 
@@ -70,9 +70,11 @@ export class FindComponent implements OnInit {
   loadWorkers() {
     this.findWorkerService.getAllWorkers().subscribe(
       (data: any[]) => {
+        console.log(data)
         this.employees = data.filter(worker => worker.status === 'true');
         this.employeesStatistic = data.filter(worker => worker.status === 'true');
         this.filterEmployees();
+
         console.log(this.employeesStatistic)
       },
       (error) => {
@@ -89,9 +91,6 @@ export class FindComponent implements OnInit {
   onRatingChange(event: any) {
     this.selectedRating = event.target.value;
     this.filterEmployees();
-  }
-onFileSelected(event: any) {
-    this.QuatationFile = event.target.files[0];
   }
 
   filterEmployees() {

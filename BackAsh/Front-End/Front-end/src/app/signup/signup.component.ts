@@ -43,6 +43,10 @@ export class SignupComponent {
   dobError = '';
   workTypeError = '';
   districtError = '';
+  profileFileError :string =  "error";
+  nicFileError :string =  "error";
+  certificateFileError :string =  "error";
+  experienceLettersFileError :string =  "error";
   certificatesFile: File | undefined;
   experienceLettersFile: File | undefined;
   NICFile: File | undefined;
@@ -148,22 +152,40 @@ export class SignupComponent {
   }
 
   onProfilePhotoChange(event: any) {
-    this.profileFile = event.target.files[0];
+    if (!(this.profileFile = event.target.files[0])){
+      this.profileFileError = "error"
+    }else {
+      this.profileFileError= '';
+    }
   }
 
   // Method to handle NIC file input change
   onNICChange(event: any) {
-    this.NICFile = event.target.files[0];
+    if (!(this.NICFile = event.target.files[0])){
+      this.nicFileError = "error"
+    }else {
+      this.nicFileError= '';
+    }
   }
 
   // Method to handle certificates file input change
   onCertificatesChange(event: any) {
-    this.certificatesFile = event.target.files[0];
+    if (!(this.certificatesFile = event.target.files[0])){
+      this.certificateFileError = "error"
+    }else {
+      this.certificateFileError= '';
+    }
+
   }
 
   // Method to handle experience letter file input change
   onExperienceLetterChange(event: any) {
-    this.experienceLettersFile = event.target.files[0];
+    if (!(this.experienceLettersFile = event.target.files[0])){
+      this.experienceLettersFileError = "error"
+    }else {
+      this.experienceLettersFileError= '';
+    }
+
   }
 
   signup() {

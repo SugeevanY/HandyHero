@@ -1,5 +1,8 @@
 <div class="star-rating">
-  <span class="star" [class.filled]="rating >= i + 1" *ngFor="let _ of [1, 2, 3, 4, 5]; let i = index" (click)="setRating(i + 1)">
+  <span class="star filled" *ngFor="let _ of filledStars()">
+    &#9733;
+  </span>
+  <span class="star" *ngFor="let _ of emptyStars()">
     &#9733;
   </span>
 </div>

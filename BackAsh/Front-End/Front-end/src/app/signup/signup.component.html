@@ -35,19 +35,22 @@
     <div class="select_container">
       <select [(ngModel)]="district" (input)="onDistrictChange($event)" name="district" class="input_box rounded-3 mb-3 _selection">
         <option value="" selected disabled>Select Your District</option>
-        <option value="fieldWorker">Mulliathivu</option>
-        <option value="customer">Vavuniya</option>
-        <option value="customer">Colombo</option>
-        <option value="customer">Ampara</option>
-        <option value="customer">Batticalow</option>
-        <option value="customer">Mannar</option>
-        <option value="customer">Kilinochchi</option>
-        <option value="customer">Anuradhapura</option>
-        <option value="customer">Polanaruwa</option>
-        <option value="customer">Kandy</option>
-        <option value="customer">Matara</option>
-        <option value="customer">Nuweraeliya</option>
-        <option value="customer">Hambanthota</option>
+        <option value="Mullaithivu">Mulliathivu</option>
+        <option value="Vavuniya">Vavuniya</option>
+        <option value="Colombo">Colombo</option>
+        <option value="Ampara">Ampara</option>
+        <option value="Batticalow">Batticalow</option>
+        <option value="Mannar">Mannar</option>
+        <option value="Kilinochchi">Kilinochchi</option>
+        <option value="Anuradhapura">Anuradhapura</option>
+        <option value="Polararuwa">Polanaruwa</option>
+        <option value="Kandy">Kandy</option>
+        <option value="Matara">Matara</option>
+        <option value="Nuweraeliya">Nuweraeliya</option>
+        <option value="Hambanthota">Hambanthota</option>
+        <option value="Kegalle">Kegalla</option>
+
+
       </select>
       <p *ngIf="districtError" class="error-msg">{{districtError}}</p>
     </div>
@@ -56,22 +59,22 @@
     <div *ngIf="role == 'fieldWorker'">
       <p class="file_handling_text px-3">Please Upload Your Profile Photo Here</p>
       <input type="file" class="input_box my-1 rounded-3 mb-3" (input)="onProfilePhotoChange($event)">
-      <p class="error-msg">error</p>
+      <p class="error-msg">{{profileFileError}}</p>
     </div>
     <div *ngIf="role == 'fieldWorker'">
       <p class="file_handling_text px-3">Please Upload Your NIC Here</p>
       <input type="file" class="input_box my-1 rounded-3 mb-3" (input)="onNICChange($event)">
-      <p class="error-msg">error</p>
+      <p class="error-msg">{{nicFileError}}</p>
     </div>
     <div *ngIf="role == 'fieldWorker'">
       <p class="file_handling_text px-3">Please Upload Your Certificates Here</p>
       <input type="file" class="input_box my-1 rounded-3 mb-3" (input)="onCertificatesChange($event)">
-      <p class="error-msg">error</p>
+      <p class="error-msg">{{certificateFileError}}</p>
     </div>
     <div *ngIf="role == 'fieldWorker'">
       <p class="file_handling_text px-3">Please Upload Your Experience Letter Here</p>
       <input type="file" class="input_box my-1 rounded-3 mb-3" (input)="onExperienceLetterChange($event)">
-      <p class="error-msg">error</p>
+      <p class="error-msg">{{experienceLettersFileError}}</p>
     </div>
     <button type="submit" class="_primaryButton py-2 px-3 mb-2">{{buttonText}}</button>
     <br>

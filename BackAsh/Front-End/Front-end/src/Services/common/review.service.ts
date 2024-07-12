@@ -7,12 +7,12 @@ import { Observable, of } from 'rxjs';
 })
 export class ReviewService {
 
-  private reviewUrl =  "https://localhost:7279/api/Reviews1";
+  private reviewUrl =  "https://localhost:7279/api/Review";
 
   constructor(private http: HttpClient) { }
 
-  submitReview( ReviewerId: number, Email: string, ReviewText: string,TimeStamp: string): Observable<any> {
-    const body = {  Email, ReviewerId,ReviewText ,TimeStamp};
+  submitReview( ReviewerId: number, Email: string, ReviewText: string,TimeStamp: string,RatingValue: string): Observable<any> {
+    const body = {  Email, ReviewerId,ReviewText ,TimeStamp,RatingValue};
     return this.http.post(`${this.reviewUrl}`, body);
   }
 
@@ -30,5 +30,5 @@ getAllReviews(): Observable<HttpResponse<any>> {
 })
 export class FieldWorkerService {
 
-  
+
 }

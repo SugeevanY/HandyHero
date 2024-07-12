@@ -2,13 +2,15 @@ import {Component, OnInit} from '@angular/core';
 import {CardComponent} from "../../card/card.component";
 import {NgForOf} from "@angular/common";
 import {ProjectsService} from "../../../Services/Customer/projects.service";
+import {StarRatingComponent} from "../../star-rating/star-rating.component";
 
 @Component({
   selector: 'app-projects',
   standalone: true,
   imports: [
     CardComponent,
-    NgForOf
+    NgForOf,
+    StarRatingComponent
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
@@ -40,6 +42,7 @@ export class ProjectsComponent implements OnInit{
   }
 
   searchWord = "";
+
 
   onSearchChange(event:any){
     this.searchWord = event.target.value;

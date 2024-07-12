@@ -1,26 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { NgIf, NgForOf } from "@angular/common";
 import { ReviewService } from "../../../Services/common/review.service";
 import { FieldWorkerService } from "../../../Services/fieldworker.service";
+import {StarRatingComponent} from "../../star-rating/star-rating.component";
 
 @Component({
   selector: 'app-review',
   standalone: true,
-  imports: [
-    NgIf,
-    NgForOf
-  ],
+    imports: [
+        NgIf,
+        NgForOf,
+        StarRatingComponent
+    ],
   templateUrl: './review.component.html',
   styleUrl: './review.component.css'
 })
 export class ReviewComponent implements OnInit {
+
+
 
   role: any = '';
   reviewId='';
   email = '';
   reviewText ='';
   reviewerId ='';
-  
+  ratingValue ='';
+
   review = '';
   emailError = '';
   reviewError = '';
@@ -57,7 +62,7 @@ export class ReviewComponent implements OnInit {
   }
 
   onReviewChange(event: any) {
-    this.review = event.target.value;
+    this.review = event.target.value
 
     if (this.review === '') {
       this.reviewError = "You must enter a review";
@@ -65,6 +70,7 @@ export class ReviewComponent implements OnInit {
       this.reviewError = '';
     }
   }
+
 
   onSubmitReview() {
     if (this.reviewError === '' && this.emailError === '') {
@@ -75,10 +81,11 @@ export class ReviewComponent implements OnInit {
       if (reviewerId != null) {
         console.log("Review submitted successfully");
         console.log('Review ID:', reviewId); // Log to check
-        console.log('Reviewer ID:', reviewerId); // Log to check
+        console.log('Reviewer ID:', reviewerId);// Log to check
         console.log('Email:', this.email); // Log to check
-        console.log('Review Text:', this.review); 
-        this.reviewService.submitReview( parseInt(reviewerId), this.email,this.review, "2024-07-01T00:00:00Z").subscribe(
+        console.log('Review Text:', this.review);
+        console.log('Review Rating:', this.rating)
+        this.reviewService.submitReview( parseInt(reviewerId), this.email,this.review, "2024-07-01T00:00:00Z",this.rating.toString()).subscribe(
           (response) => {
             console.log("Review submitted successfully");
             this.email = "";
@@ -94,8 +101,16 @@ export class ReviewComponent implements OnInit {
       console.log("Please fill all fields");
     }
   }
+  @Input() rating: number = 0;
+  @Output() ratingChange: EventEmitter<number> = new EventEmitter<number>();
 
- 
+  setRating(rating: number) {
+    this.rating = rating;
+    this.ratingChange.emit(rating);
+  }
 
-  
+
+
+
+
 }
